@@ -12,17 +12,24 @@ public class Main {
             e1.attendence = 2;
         }
 
-        if (e1.attendence ==1) {
+
+        switch(e1.attendence) {
+            case 1:
             System.out.println("Employee is present");
             e1.workHour = 8;
-        } else if(e1.attendence==0) {
+            break;
+
+        case 2:
+
 
             System.out.println("Employee is absent");
-        }
-        else if(e1.attendence==2)
-        {
+            break;
+
+        case 3:
+
             System.out.println("Part time employee");
             e1.workHour=4;
+            break;
         }
 
         //it is a Not static method

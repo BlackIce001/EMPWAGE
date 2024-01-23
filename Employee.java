@@ -2,7 +2,7 @@ public class Employee
 {
     String name;
     Integer id;
-    boolean attendence;
+    int attendence;
     Integer wagePerHour;
     Integer workHour=0;
 
@@ -10,6 +10,7 @@ public class Employee
 
 
     Employee(String n,Integer i,Integer w)
+
     {
         this.name=n;
         this.id=i;

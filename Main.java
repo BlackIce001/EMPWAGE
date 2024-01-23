@@ -1,39 +1,57 @@
 public class Main {
     public static void main(String[] args) {
+
         Employee e1 = new Employee("Bharat", 1, 200);
-        int check = (int) ((Math.random() * 10)) %3;
-
-        if (check == 0) {
-            e1.attendence = 0;
-        } else if(check ==1) {
-            e1.attendence = 1;
-        } else if (check ==2)
-        {
-            e1.attendence = 2;
-        }
-
-        if (e1.attendence ==1) {
-            System.out.println("Employee is present");
-            e1.workHour = 8;
-        } else if(e1.attendence==0) {
-
-            System.out.println("Employee is absent");
-        }
-        else if(e1.attendence==2)
-        {
-            System.out.println("Part time employee");
-            e1.workHour=4;
-        }
+        int totalWorkHour=0;
+        int totalWorkingDays=0;
 
         //it is a Not static method
         Main m1 = new Main();
-        System.out.println(m1.calculateSalary(e1));
-    }
+
+        while(totalWorkingDays<20 && totalWorkHour<100) {
+
+            int check = (int) ((Math.random() * 10)) % 3;
+
+            if (check == 0) {
+                e1.attendence = 0;
+            } else if (check == 1) {
+                e1.attendence = 1;
+            } else {
+                e1.attendence = 2;
+            }
+
+            switch (e1.attendence) {
+                case 1:
+                    System.out.println("\nEmployee is present");
+                    e1.workHour = 8;
+                    break;
+                case 2:
+                    System.out.println("\nEmployee is absent");
+                    e1.workHour=0;
+                    break;
+                default:
+                    System.out.println("\nEmployee worked part time");
+                    e1.workHour = 4;
+
+            }
+
+            System.out.println("\nToday's earnings "+m1.calculateSalary(e1));
 
 
-        double calculateSalary (Employee e)
-        {
-            return e.workHour * e.wagePerHour;
+            totalWorkingDays++;
+            totalWorkHour += e1.workHour;
+            System.out.println("\nDay "+totalWorkingDays + " of working total "+totalWorkHour + " Hours Worked\n\n\n");
+
+
         }
+        System.out.print("\n\nEmployee's monthly income is: ");
+        System.out.println(m1.calculateIncome(e1,totalWorkHour));
 
+    }
+    double calculateSalary(Employee e){
+        return e.workHour*e.wagePerHour;
+    }
+    double calculateIncome(Employee e,int totalWorkHour){
+        return totalWorkHour*e.wagePerHour;
+    }
 }

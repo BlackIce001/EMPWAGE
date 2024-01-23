@@ -9,12 +9,15 @@ public class Employee
 
 
 
+
+
     Employee(String n,Integer i,Integer w)
 
     {
         this.name=n;
         this.id=i;
         this.wagePerHour=w;
+
     }
 
 

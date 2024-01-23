@@ -28,12 +28,19 @@ public class Main {
         //it is a Not static method
         Main m1 = new Main();
         System.out.println(m1.calculateSalary(e1));
+        System.out.println("Employee Monthly Income : ");
+        System.out.println(m1.monthlyWage(e1));
+
     }
 
 
         double calculateSalary (Employee e)
         {
             return e.workHour * e.wagePerHour;
+        }
+        double monthlyWage(Employee e)
+        {
+            return 20*e.workHour * e.wagePerHour;
         }
 
 }
